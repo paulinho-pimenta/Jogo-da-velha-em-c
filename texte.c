@@ -8,10 +8,8 @@ void limpar_tela(){
 void esvaziar_matriz(char matriz[3][3]){
     int i, j;
 
-    for (i = 0; i <= 2; i++)
-    {
-        for (j = 0; j <= 2; j++)
-        {
+    for (i = 0; i <= 2; i++){
+        for (j = 0; j <= 2; j++){
             matriz[i][j] = ' ';
         }
     }
