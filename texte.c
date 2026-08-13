@@ -22,8 +22,11 @@ int verifica_matriz(char matriz[3][3], char vencedor, int *p_k){
     for(i = 0; i <= 2; i++){
         if(matriz[i][0] != ' ' || matriz[i][1] != ' ' || matriz[i][2] != ' '){
             if(matriz[i][0] == matriz[i][1] && matriz[i][1] == matriz[i][2]){
-            printf("O vencedor eh %c\n",vencedor); 
-            *p_k = 1;     
+                printf("O vencedor eh %c\n",vencedor); 
+                *p_k = 1;     
+            }else if(matriz[0][i] == matriz[1][i] && matriz[1][i] == matriz[2][i]){
+                printf("O vencedor eh %c\n",vencedor); 
+                *p_k = 1;  
             }
         }
     }
@@ -39,23 +42,30 @@ void preenche_matriz(char matriz[3][3]){
     scanf("%c", &simbolo);
 
     while(k != 1){
+        limpar_tela();
         printf("Jogada atual: %c\n", simbolo);
         mostrar_matriz(matriz);
         
-        printf("De as coordenadas de onde ira jogar:\n");
+        printf("De as coordenadas de onde vai jogar:\n");
         scanf("%d %d", &i, &j);
 
+        limpar_tela();
+        
         if(simbolo == 'X' || simbolo == 'x'){
-            matriz[i][j] = 'X';
-            simbolo = 'O';
+            matriz[i][j] = 'X';  
         }else if(simbolo == 'o' || simbolo == 'O'){
             matriz[i][j] = 'O';
-            simbolo = 'X';
         }else{
             printf("ERRO: jogada invalida ou execucao inesperada\n");
         }
-        limpar_tela();
+
         verifica_matriz(matriz,simbolo,&k);
+        if(simbolo == 'X' || simbolo == 'x'){
+            simbolo = 'O';
+        }else if(simbolo == 'o' || simbolo == 'O'){
+            simbolo = 'X';
+        }
+        
     }
 }
 
