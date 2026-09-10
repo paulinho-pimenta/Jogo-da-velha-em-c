@@ -7,6 +7,7 @@ int tabuleiro_cheio(char matriz[3][3]);
 char verifica_matriz(char matriz[3][3]);
 void preenche_matriz(char matriz[3][3]);
 void mostrar_matriz(char matriz[3][3]);
+void pausar();
 
 void limpar_tela(){
     #ifdef _WIN32
@@ -24,6 +25,12 @@ void esvaziar_matriz(char matriz[3][3]){
             matriz[i][j] = ' ';
         }
     }
+}
+
+void pausar(){
+    while(getchar() != '\n');
+    printf("Pressione ENTER para continuar...\n");
+    getchar();
 }
 
 int tabuleiro_cheio(char matriz[3][3]){
@@ -82,15 +89,17 @@ void preenche_matriz(char matriz[3][3]){
         //---tratando erros de entrada---
         if(scanf("%d %d", &i, &j) != 2){
             printf("Entrada invalida!\n");
-            while(getchar() != '\n'); // limpa o buffer
+            pausar();
             continue;
         } 
         if(i < 0 || i > 2 || j < 0 || j > 2){
             printf("Coordenadas invalidas! Use valores de 0 a 2.\n");
+            pausar();
             continue;
         }
         if(matriz[i][j] != ' '){
             printf("Essa posicao ja esta ocupada!\n");
+            pausar();
             continue;
         }     
 
