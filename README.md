@@ -30,19 +30,19 @@ Um compilador C instalado (GCC, por exemplo).
 ### Compilando
 
 ```bash
-gcc -Wall -Wextra -o jogo_da_velha jogo_da_velha.c
+gcc -Wall -Wextra -o jogo-da-velha jogo-da-velha.c
 ```
 
 ### Rodando
 
 **Windows:**
 ```bash
-jogo_da_velha.exe
+jogo-da-velha.exe
 ```
 
 **Linux/Mac:**
 ```bash
-./jogo_da_velha
+./jogo-da-velha
 ```
 
 ## 🎲 Como jogar
@@ -85,7 +85,7 @@ O código é organizado em funções com responsabilidades bem definidas:
 
 ## 👤 Autor
 
-Desenvolvido por Paulo
+Desenvolvido por Paulo Pimenta
 
 ---
 
